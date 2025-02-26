@@ -4,4 +4,4 @@ This is the first homework assignment for DACSS 690C. You can access my code [he
 ## Codes in the repo:
 Python to bin the 'obesity' variable, find the best scheme, and determine which countries had the lowest levels of alcohol and tobacco use, as well as obesity.
 
-Python code to plot the data prepared in Python.
+R code to plot the data prepared in Python.
