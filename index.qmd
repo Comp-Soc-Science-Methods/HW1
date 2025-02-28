@@ -1,0 +1,42 @@
+---
+title: "HW 1"
+format: html
+editor: visual
+---
+
+```{r}
+rm(list = ls())
+library(sf)
+
+git_link = 'https://github.com/Comp-Soc-Science-Methods/HW1/raw/refs/heads/main/CIA.gpkg'
+
+countriesCIA=read_sf(git_link, layer = 'cia')
+worldBorders=read_sf(git_link, layer = 'border')
+
+##checking that the file has the right col names
+colnames(countriesCIA)
+```
+
+```{r}
+bestCountries=countriesCIA[(countriesCIA$tobacco_code==0) & (countriesCIA$alcohol_code==0) & (countriesCIA$obesity_code==0),]
+bestCountries
+```
+
+```{r}
+##creating map
+library(ggplot2)
+
+base=ggplot(data = worldBorders)+geom_sf(fill='grey',color=NA) + theme_linedraw() #base
+
+maskToClip=as.vector(st_bbox(bestCountries))
+
+base + geom_sf(data=bestCountries,fill='yellow') + 
+  coord_sf(xlim = c(maskToClip[1],maskToClip[3]), 
+           ylim = c(maskToClip[2],maskToClip[4])) +
+    geom_sf_text(data=bestCountries,
+                 aes(label=COUNTRY),
+                 color='blue',
+                 check_overlap = T,
+                 size=3,
+                 nudge_y = 0.15)
+```
