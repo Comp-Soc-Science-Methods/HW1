@@ -2,6 +2,10 @@
 title: "HW 1"
 format: html
 editor: visual
+
+html:
+    embed-resources: true
+    code-background: true
 ---
 
 ```{r}
