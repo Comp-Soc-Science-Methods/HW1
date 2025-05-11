@@ -1,4 +1,4 @@
-# Deliverable 1
+# Exploring Spatial Data
 This is the first deliverable for DACSS 690C. You can access my code [here](https://comp-soc-science-methods.github.io/HW1/)
 
 ## Codes in the repo:
